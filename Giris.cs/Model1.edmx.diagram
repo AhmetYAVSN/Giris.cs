@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7fae9b45fba04091abfcfa806f1bf4c3" Name="Diagram1" ZoomLevel="71">
+        <EntityTypeShape EntityType="DBKutuphaneModel.tbl_Geridonusum" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBKutuphaneModel.tbl_Haberver" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBKutuphaneModel.tbl_Hareket" Width="1.5" PointX="0.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DBKutuphaneModel.tbl_HareketTipi" Width="1.5" PointX="2.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DBKutuphaneModel.tbl_Ickategori" Width="1.5" PointX="4.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBKutuphaneModel.tbl_Kitap" Width="1.5" PointX="4.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DBKutuphaneModel.tbl_KitapKategori" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="DBKutuphaneModel.tbl_KulKayit" Width="1.5" PointX="6.75" PointY="3.75" />
+        <EntityTypeShape EntityType="DBKutuphaneModel.tbl_Raf" Width="1.5" PointX="6.75" PointY="6.75" />
+        <EntityTypeShape EntityType="DBKutuphaneModel.tbl_Uye" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="DBKutuphaneModel.tbl_Yazar" Width="1.5" PointX="2.75" PointY="7.75" />
+        <EntityTypeShape EntityType="DBKutuphaneModel.tbl_Yetki" Width="1.5" PointX="8.75" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

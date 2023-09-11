@@ -1,0 +1,414 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DBKutuphaneModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_Geridonusum">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KitapID" Type="int" />
+          <Property Name="Tarih" Type="date" />
+        </EntityType>
+        <EntityType Name="tbl_Haberver">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KitapID" Type="int" />
+          <Property Name="UyeID" Type="int" />
+          <Property Name="Tarih" Type="date" />
+        </EntityType>
+        <EntityType Name="tbl_Hareket">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HareketTipiID" Type="int" />
+          <Property Name="KitapID" Type="int" />
+          <Property Name="UyeID" Type="int" />
+          <Property Name="TarihID" Type="int" />
+          <Property Name="GirisAdeti" Type="int" />
+          <Property Name="CikisAdeti" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_HareketTipi">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HareketTipi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Acıklama" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_Ickategori">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KategoriAdi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_Kitap">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KategoriID" Type="int" />
+          <Property Name="YazarID" Type="int" />
+          <Property Name="RafID" Type="int" />
+          <Property Name="KitapAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Barkot" Type="nvarchar" MaxLength="50" />
+          <Property Name="YayinEvi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Baski" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ozet" Type="ntext" />
+          <Property Name="SayfaSayisi" Type="int" />
+          <Property Name="YayinTarihi" Type="date" />
+        </EntityType>
+        <EntityType Name="tbl_KitapKategori">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KategoriAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="RafID" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_KulKayit">
+          <Key>
+            <PropertyRef Name="Kul_ID" />
+          </Key>
+          <Property Name="Kul_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sifre" Type="nvarchar" MaxLength="50" />
+          <Property Name="KayitTarihi" Type="date" />
+          <Property Name="YetkiID" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Raf">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RafAdi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_Uye">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UyeAdSoyad" Type="nvarchar" MaxLength="50" />
+          <Property Name="KayitTarihi" Type="date" />
+          <Property Name="MailAdresi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Telefon" Type="int" />
+          <Property Name="Adres" Type="nvarchar" MaxLength="50" />
+          <Property Name="DogumTarihi" Type="date" />
+        </EntityType>
+        <EntityType Name="tbl_Yazar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="YazarAdi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tbl_Yetki">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Yetki" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="DBKutuphaneModelStoreContainer">
+          <EntitySet Name="tbl_Geridonusum" EntityType="Self.tbl_Geridonusum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Haberver" EntityType="Self.tbl_Haberver" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Hareket" EntityType="Self.tbl_Hareket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_HareketTipi" EntityType="Self.tbl_HareketTipi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Ickategori" EntityType="Self.tbl_Ickategori" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Kitap" EntityType="Self.tbl_Kitap" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_KitapKategori" EntityType="Self.tbl_KitapKategori" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_KulKayit" EntityType="Self.tbl_KulKayit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Raf" EntityType="Self.tbl_Raf" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Uye" EntityType="Self.tbl_Uye" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Yazar" EntityType="Self.tbl_Yazar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Yetki" EntityType="Self.tbl_Yetki" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBKutuphaneModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DBKutuphaneEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_Geridonusum" EntityType="DBKutuphaneModel.tbl_Geridonusum" />
+          <EntitySet Name="tbl_Haberver" EntityType="DBKutuphaneModel.tbl_Haberver" />
+          <EntitySet Name="tbl_Hareket" EntityType="DBKutuphaneModel.tbl_Hareket" />
+          <EntitySet Name="tbl_HareketTipi" EntityType="DBKutuphaneModel.tbl_HareketTipi" />
+          <EntitySet Name="tbl_Ickategori" EntityType="DBKutuphaneModel.tbl_Ickategori" />
+          <EntitySet Name="tbl_Kitap" EntityType="DBKutuphaneModel.tbl_Kitap" />
+          <EntitySet Name="tbl_KitapKategori" EntityType="DBKutuphaneModel.tbl_KitapKategori" />
+          <EntitySet Name="tbl_KulKayit" EntityType="DBKutuphaneModel.tbl_KulKayit" />
+          <EntitySet Name="tbl_Raf" EntityType="DBKutuphaneModel.tbl_Raf" />
+          <EntitySet Name="tbl_Uye" EntityType="DBKutuphaneModel.tbl_Uye" />
+          <EntitySet Name="tbl_Yazar" EntityType="DBKutuphaneModel.tbl_Yazar" />
+          <EntitySet Name="tbl_Yetki" EntityType="DBKutuphaneModel.tbl_Yetki" />
+        </EntityContainer>
+        <EntityType Name="tbl_Geridonusum">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KitapID" Type="Int32" />
+          <Property Name="Tarih" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="tbl_Haberver">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KitapID" Type="Int32" />
+          <Property Name="UyeID" Type="Int32" />
+          <Property Name="Tarih" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="tbl_Hareket">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HareketTipiID" Type="Int32" />
+          <Property Name="KitapID" Type="Int32" />
+          <Property Name="UyeID" Type="Int32" />
+          <Property Name="TarihID" Type="Int32" />
+          <Property Name="GirisAdeti" Type="Int32" />
+          <Property Name="CikisAdeti" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_HareketTipi">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HareketTipi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Acıklama" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_Ickategori">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KategoriAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_Kitap">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KategoriID" Type="Int32" />
+          <Property Name="YazarID" Type="Int32" />
+          <Property Name="RafID" Type="Int32" />
+          <Property Name="KitapAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Barkot" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="YayinEvi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Baski" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ozet" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SayfaSayisi" Type="Int32" />
+          <Property Name="YayinTarihi" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="tbl_KitapKategori">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KategoriAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RafID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_KulKayit">
+          <Key>
+            <PropertyRef Name="Kul_ID" />
+          </Key>
+          <Property Name="Kul_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KayitTarihi" Type="DateTime" Precision="0" />
+          <Property Name="YetkiID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_Raf">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RafAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_Uye">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UyeAdSoyad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KayitTarihi" Type="DateTime" Precision="0" />
+          <Property Name="MailAdresi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="Int32" />
+          <Property Name="Adres" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DogumTarihi" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="tbl_Yazar">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="YazarAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_Yetki">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Yetki" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBKutuphaneModelStoreContainer" CdmEntityContainer="DBKutuphaneEntities">
+          <EntitySetMapping Name="tbl_Geridonusum">
+            <EntityTypeMapping TypeName="DBKutuphaneModel.tbl_Geridonusum">
+              <MappingFragment StoreEntitySet="tbl_Geridonusum">
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="KitapID" ColumnName="KitapID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Haberver">
+            <EntityTypeMapping TypeName="DBKutuphaneModel.tbl_Haberver">
+              <MappingFragment StoreEntitySet="tbl_Haberver">
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="UyeID" ColumnName="UyeID" />
+                <ScalarProperty Name="KitapID" ColumnName="KitapID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Hareket">
+            <EntityTypeMapping TypeName="DBKutuphaneModel.tbl_Hareket">
+              <MappingFragment StoreEntitySet="tbl_Hareket">
+                <ScalarProperty Name="CikisAdeti" ColumnName="CikisAdeti" />
+                <ScalarProperty Name="GirisAdeti" ColumnName="GirisAdeti" />
+                <ScalarProperty Name="TarihID" ColumnName="TarihID" />
+                <ScalarProperty Name="UyeID" ColumnName="UyeID" />
+                <ScalarProperty Name="KitapID" ColumnName="KitapID" />
+                <ScalarProperty Name="HareketTipiID" ColumnName="HareketTipiID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_HareketTipi">
+            <EntityTypeMapping TypeName="DBKutuphaneModel.tbl_HareketTipi">
+              <MappingFragment StoreEntitySet="tbl_HareketTipi">
+                <ScalarProperty Name="Acıklama" ColumnName="Acıklama" />
+                <ScalarProperty Name="HareketTipi" ColumnName="HareketTipi" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Ickategori">
+            <EntityTypeMapping TypeName="DBKutuphaneModel.tbl_Ickategori">
+              <MappingFragment StoreEntitySet="tbl_Ickategori">
+                <ScalarProperty Name="KategoriAdi" ColumnName="KategoriAdi" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Kitap">
+            <EntityTypeMapping TypeName="DBKutuphaneModel.tbl_Kitap">
+              <MappingFragment StoreEntitySet="tbl_Kitap">
+                <ScalarProperty Name="YayinTarihi" ColumnName="YayinTarihi" />
+                <ScalarProperty Name="SayfaSayisi" ColumnName="SayfaSayisi" />
+                <ScalarProperty Name="Ozet" ColumnName="Ozet" />
+                <ScalarProperty Name="Baski" ColumnName="Baski" />
+                <ScalarProperty Name="YayinEvi" ColumnName="YayinEvi" />
+                <ScalarProperty Name="Barkot" ColumnName="Barkot" />
+                <ScalarProperty Name="KitapAdi" ColumnName="KitapAdi" />
+                <ScalarProperty Name="RafID" ColumnName="RafID" />
+                <ScalarProperty Name="YazarID" ColumnName="YazarID" />
+                <ScalarProperty Name="KategoriID" ColumnName="KategoriID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_KitapKategori">
+            <EntityTypeMapping TypeName="DBKutuphaneModel.tbl_KitapKategori">
+              <MappingFragment StoreEntitySet="tbl_KitapKategori">
+                <ScalarProperty Name="RafID" ColumnName="RafID" />
+                <ScalarProperty Name="KategoriAdi" ColumnName="KategoriAdi" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_KulKayit">
+            <EntityTypeMapping TypeName="DBKutuphaneModel.tbl_KulKayit">
+              <MappingFragment StoreEntitySet="tbl_KulKayit">
+                <ScalarProperty Name="YetkiID" ColumnName="YetkiID" />
+                <ScalarProperty Name="KayitTarihi" ColumnName="KayitTarihi" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+                <ScalarProperty Name="Kul_ID" ColumnName="Kul_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Raf">
+            <EntityTypeMapping TypeName="DBKutuphaneModel.tbl_Raf">
+              <MappingFragment StoreEntitySet="tbl_Raf">
+                <ScalarProperty Name="RafAdi" ColumnName="RafAdi" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Uye">
+            <EntityTypeMapping TypeName="DBKutuphaneModel.tbl_Uye">
+              <MappingFragment StoreEntitySet="tbl_Uye">
+                <ScalarProperty Name="DogumTarihi" ColumnName="DogumTarihi" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="MailAdresi" ColumnName="MailAdresi" />
+                <ScalarProperty Name="KayitTarihi" ColumnName="KayitTarihi" />
+                <ScalarProperty Name="UyeAdSoyad" ColumnName="UyeAdSoyad" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Yazar">
+            <EntityTypeMapping TypeName="DBKutuphaneModel.tbl_Yazar">
+              <MappingFragment StoreEntitySet="tbl_Yazar">
+                <ScalarProperty Name="YazarAdi" ColumnName="YazarAdi" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Yetki">
+            <EntityTypeMapping TypeName="DBKutuphaneModel.tbl_Yetki">
+              <MappingFragment StoreEntitySet="tbl_Yetki">
+                <ScalarProperty Name="Yetki" ColumnName="Yetki" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
